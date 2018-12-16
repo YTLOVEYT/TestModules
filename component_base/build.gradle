@@ -1,0 +1,81 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //MultiDex分包方法
+        multiDexEnabled true
+
+        //Arouter路由配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+//    //强制使用support27.1.1
+//    configurations.all {
+//        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+//            def requested = details.requested
+//            if (requested.group == 'com.android.support') {
+//                if (!requested.name.startsWith("multidex")) {
+//                    details.useVersion rootProject.ext.android["buildToolsVersion"]
+//                }
+//            }
+//        }
+//    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //解决.9图问题
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api rootProject.ext.dependencies["appcompat_v7"]
+    api rootProject.ext.dependencies["support-v4"]
+    api rootProject.ext.dependencies["constraint_layout"]
+    api rootProject.ext.dependencies["design"]
+
+    api rootProject.ext.dependencies["cardview-v7"]
+    api rootProject.ext.dependencies["recyclerview-v7"]
+    api rootProject.ext.dependencies["support_annotations"]
+
+    //分包
+    api rootProject.ext.dependencies["multidex"]
+    //路由
+    api rootProject.ext.dependencies["arouter_api"]
+    api rootProject.ext.dependencies["arouter_annotation"]
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    //黄油刀
+    api rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
+    //沉浸式状态栏
+    api rootProject.ext.dependencies["barlibrary"]
+
+
+
+}

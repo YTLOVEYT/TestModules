@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.MainActivity">
+
+    <Button
+        android:id="@+id/bt_module_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Module_Two"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/bt_module_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Module_Three"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/bt_module_four"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Module_Four"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/bt_module_five"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Module_Five"
+        android:textAllCaps="false" />
+
+
+</LinearLayout>
