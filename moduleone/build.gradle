@@ -36,17 +36,17 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    //强制使用support27.1.1
-    configurations.all {
-        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-            def requested = details.requested
-            if (requested.group == 'com.android.support') {
-                if (!requested.name.startsWith("multidex")) {
-                    details.useVersion rootProject.ext.android["buildToolsVersion"]
-                }
-            }
-        }
-    }
+//    //强制使用support27.1.1
+//    configurations.all {
+//        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+//            def requested = details.requested
+//            if (requested.group == 'com.android.support') {
+//                if (!requested.name.startsWith("multidex")) {
+//                    details.useVersion rootProject.ext.android["buildToolsVersion"]
+//                }
+//            }
+//        }
+//    }
     sourceSets {
         main {
             if (rootProject.ext.isModuleOne) {

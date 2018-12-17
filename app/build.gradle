@@ -18,18 +18,6 @@ android {
         }
     }
 
-//    //强制使用support27.1.1
-//    configurations.all {
-//        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-//            def requested = details.requested
-//            if (requested.group == 'com.android.support') {
-//                if (!requested.name.startsWith("multidex")) {
-//                    details.useVersion rootProject.ext.android["buildToolsVersion"]
-//                }
-//            }
-//        }
-//    }
-
     buildTypes {
         release {
             minifyEnabled false
