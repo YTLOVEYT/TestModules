@@ -5,6 +5,7 @@
         android:name=".module.OneApp"
         android:allowBackup="true"
         android:supportsRtl="true"
+        android:label="@string/one_app_name"
         android:theme="@style/MyAppTheme">
 
         <activity android:name=".ui.MainActivity">

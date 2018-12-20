@@ -5,6 +5,7 @@
         android:name=".module.TwoApp"
         android:allowBackup="true"
         android:supportsRtl="true"
+        android:label="@string/two_app_name"
         android:theme="@style/MyAppTheme">
         <activity android:name=".ui.MainActivity">
             <intent-filter>

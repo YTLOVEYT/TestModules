@@ -75,7 +75,9 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
     //沉浸式状态栏
     api rootProject.ext.dependencies["barlibrary"]
-
+    //Glide
+    api rootProject.ext.dependencies["glide"]
+    annotationProcessor rootProject.ext.dependencies["glide_compiler"]
 
 
 }

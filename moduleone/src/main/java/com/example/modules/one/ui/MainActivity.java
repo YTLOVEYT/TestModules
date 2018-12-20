@@ -3,6 +3,8 @@ package com.example.modules.one.ui;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.modules.base.arouter.ARouterUrls;
@@ -23,8 +25,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener
     Button btModuleThree;
     @BindView(R2.id.bt_module_four)
     Button btModuleFour;
-    @BindView(R2.id.bt_module_five)
-    Button btModuleFive;
+    @BindView(R2.id.iv_title_left)
+    ImageView ivTitleLeft;
+    @BindView(R2.id.tv_title)
+    TextView tvTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,7 +43,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener
         btModuleTwo.setOnClickListener(this);
         btModuleThree.setOnClickListener(this);
         btModuleFour.setOnClickListener(this);
-        btModuleFive.setOnClickListener(this);
     }
 
     @Override
@@ -51,7 +54,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener
     @Override
     protected void InitView()
     {
-
+        ivTitleLeft.setVisibility(View.INVISIBLE);
+        tvTitle.setText(R.string.one_app_name);
     }
 
     /** 使用switch-case不起作用 */
@@ -65,15 +69,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener
         }
         else if (id == R.id.bt_module_three)
         {
-            ARouterUtils.navigate(ARouterUrls.PATH_MODULE_THREE);
+            Bundle bundle = new Bundle();
+            bundle.putString("data", "moduleOne2moduleThree");
+            ARouterUtils.navigate(ARouterUrls.PATH_MODULE_THREE, bundle);
         }
         else if (id == R.id.bt_module_four)
         {
             ARouterUtils.navigate(ARouterUrls.PATH_MODULE_FOUR);
-        }
-        else if (id == R.id.bt_module_five)
-        {
-            ARouterUtils.navigate(ARouterUrls.PATH_MODULE_FIVE);
         }
     }
 }

@@ -4,6 +4,7 @@
     <application
         android:name=".module.ThreeApp"
         android:allowBackup="true"
+        android:label="@string/three_app_name"
         android:supportsRtl="true"
         android:theme="@style/MyAppTheme">
 

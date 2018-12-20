@@ -6,10 +6,13 @@
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
+    <include layout="@layout/common_title_bar" />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/tvText"
         android:gravity="center"
+        android:layout_height="wrap_content"
         android:text="module_three"
         android:textAllCaps="false" />
 

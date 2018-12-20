@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolBarHeight">48dp</dimen>
+    <dimen name="toolBarHeight_half">24dp</dimen>
+
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_6dp">6dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="padding_12dp">12dp</dimen>
+
+    <dimen name="textSize_12sp">12sp</dimen>
+    <dimen name="textSize_14sp">14sp</dimen>
+    <dimen name="textSize_16sp">16sp</dimen>
+    <dimen name="textSize_18sp">18sp</dimen>
+
+</resources>
