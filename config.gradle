@@ -1,8 +1,10 @@
 ext {
-    isModule = true
+    isModule = false
     isModuleOne = true
     isModuleTwo = true
     isModuleThree = true
+
+    isAndroidStudyModule=false
 
 
     android = [

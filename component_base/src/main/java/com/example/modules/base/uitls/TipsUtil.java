@@ -53,13 +53,13 @@ public class TipsUtil
 
     public static void logE(String msg)
     {
-        if (isShowLog) return;
+        if (!isShowLog) return;
         Log.e(TAG, msg);
     }
 
     public static void logD(String msg)
     {
-        if (isShowLog) return;
+        if (!isShowLog) return;
         Log.d(TAG, msg);
     }
 

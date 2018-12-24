@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_nav_header"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/study_nav_header_height"
+    android:background="@drawable/study_nav_header_bg"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:theme="@style/MyAppTheme">
+
+</LinearLayout>

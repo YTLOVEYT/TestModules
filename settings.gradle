@@ -1,1 +1,1 @@
-include ':app', ':component_base', ':moduleone', ':moduletwo', ':modulethree'
+include ':app', ':component_base', ':moduleone', ':moduletwo', ':modulethree', ':androidstudy'
