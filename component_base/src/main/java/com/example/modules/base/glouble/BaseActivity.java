@@ -7,6 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.modules.base.R;
 import com.gyf.barlibrary.ImmersionBar;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -20,6 +24,8 @@ public abstract class BaseActivity extends AppCompatActivity
     private Unbinder unbinder;
     private ImmersionBar immersionBar;
 
+    protected boolean isRegistEventBus;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
@@ -29,6 +35,10 @@ public abstract class BaseActivity extends AppCompatActivity
         BaseApplication.getApp().addActivity(this);
         InitImmersionBar();
         InitView();
+        if (isRegistEventBus)
+        {
+            EventBus.getDefault().register(this);
+        }
 
     }
 
@@ -44,6 +54,10 @@ public abstract class BaseActivity extends AppCompatActivity
         {
             immersionBar.destroy();
         }
+        if (isRegistEventBus)
+        {
+            EventBus.getDefault().unregister(this);
+        }
         BaseApplication.getApp().removeActivity(this);
     }
 
@@ -53,7 +67,14 @@ public abstract class BaseActivity extends AppCompatActivity
         immersionBar.fitsSystemWindows(true).statusBarColor(R.color.colorPrimary).init();
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent()
+    {
+
+    }
+
     protected abstract int getContentViewId();
 
     protected abstract void InitView();
+
 }

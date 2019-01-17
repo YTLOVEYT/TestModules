@@ -1,4 +1,4 @@
-package com.example.modules.android.study.ui.main;
+package com.example.modules.android.study.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -48,8 +48,6 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -61,6 +59,8 @@ public class MainActivity extends BaseActivity
     @Override
     protected void InitView()
     {
+        super.isRegistEventBus = true;
+
         InitNavView();
         toggleNavAndContent();
         InitFragment();

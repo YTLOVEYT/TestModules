@@ -62,6 +62,7 @@ dependencies {
 
     api rootProject.ext.dependencies["cardview-v7"]
     api rootProject.ext.dependencies["recyclerview-v7"]
+    api rootProject.ext.dependencies["baseRecyclerViewAdapterHelper"]
     api rootProject.ext.dependencies["support_annotations"]
 
     //分包
@@ -78,6 +79,7 @@ dependencies {
     //Glide
     api rootProject.ext.dependencies["glide"]
     annotationProcessor rootProject.ext.dependencies["glide_compiler"]
-
+    //eventBus
+    api rootProject.ext.dependencies["eventbus"]
 
 }

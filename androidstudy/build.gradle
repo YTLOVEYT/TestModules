@@ -65,4 +65,20 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
 
     implementation project(':component_base')
+    //刷新
+    implementation rootProject.ext.dependencies["SmartRefreshLayout"]
+    implementation rootProject.ext.dependencies["SmartRefreshHeader"]
+    //rxJava
+    implementation rootProject.ext.dependencies["rxJava2"]
+    implementation rootProject.ext.dependencies["rxAndroid2"]
+    //banner
+    implementation rootProject.ext.dependencies["banner"]
+    //retrofit
+    implementation rootProject.ext.dependencies["retrofit2"]
+    implementation rootProject.ext.dependencies["adapter-rxjava2"]
+    implementation rootProject.ext.dependencies["converter-gson"]
+    implementation rootProject.ext.dependencies["logging-interceptor"]
+
+
+
 }

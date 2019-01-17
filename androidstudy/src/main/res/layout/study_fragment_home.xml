@@ -19,13 +19,19 @@
             <include layout="@layout/common_title_search_bar" />
         </android.support.design.widget.AppBarLayout>
 
-        <LinearLayout
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/smartRefreshLayout_home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/color_gray"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleView_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
     </android.support.design.widget.CoordinatorLayout>
 
 
