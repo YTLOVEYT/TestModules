@@ -3,6 +3,8 @@ package com.example.modules.android.study.ui.fragment.home;
 import com.example.modules.android.study.entity.BaseObj;
 import com.example.modules.android.study.entity.article.ArticleListData;
 import com.example.modules.android.study.entity.banner.BannerData;
+import com.example.modules.android.study.ui.IModel;
+import com.example.modules.android.study.ui.fragment.BasePresenter;
 import com.example.modules.android.study.ui.mvp.BaseObserver;
 import com.example.modules.base.uitls.TipsUtil;
 
@@ -17,19 +19,17 @@ import io.reactivex.schedulers.Schedulers;
  * TestModules
  * Created by YinTao on 2018/12/24.
  */
-public class HomePresenter implements HomeContract.IHomePresenter
+public class HomePresenter extends
+        BasePresenter<HomeContract.IHomeView, HomeContract.IHomeModel> implements
+        HomeContract.IHomePresenter
 {
-    private HomeContract.IHomeView mView;
-    private HomeContract.IHomeModel mModel;
-    private CompositeDisposable compositeDisposable;//管理观察者与被观察者的关联事件
 
     @Override
     public void loadBannerData()
     {
         //添加进入池管理
         TipsUtil.logE("加载banner数据。。。");
-        addDisposable(mModel.getBannerData()
-                .subscribeOn(AndroidSchedulers.mainThread())
+        addDisposable(model.getBannerData().subscribeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new BaseObserver<BaseObj<List<BannerData>>>()
                 {
                     @Override
@@ -37,7 +37,7 @@ public class HomePresenter implements HomeContract.IHomePresenter
                     {
                         List<BannerData> bannerData = listBaseObj.getData();
                         TipsUtil.logE("bannerData=" + bannerData);
-                        mView.updateBanner(bannerData);
+                        view.updateBanner(bannerData);
                     }
 
                     @Override
@@ -57,21 +57,19 @@ public class HomePresenter implements HomeContract.IHomePresenter
     @Override
     public void loadArticleList(int page)
     {
-        addDisposable(mModel.getArticleList(page)
-                .subscribeOn(Schedulers.io())
+        addDisposable(model.getArticleList(page).subscribeOn(Schedulers.io())
                 .doOnSubscribe(disposable ->
                 {
                     TipsUtil.logE("doOnSubscribe");
-                })
-                .subscribeOn(AndroidSchedulers.mainThread())
+                }).subscribeOn(AndroidSchedulers.mainThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new BaseObserver<BaseObj<ArticleListData>>(mView)
+                .subscribeWith(new BaseObserver<BaseObj<ArticleListData>>(view)
                 {
                     @Override
                     public void onNext(BaseObj<ArticleListData> articleListDataBaseObj)
                     {
                         ArticleListData articleListData = articleListDataBaseObj.getData();
-                        mView.updateListData(articleListData.getDatas());
+                        view.updateListData(articleListData.getDatas());
                     }
 
                     @Override
@@ -91,41 +89,13 @@ public class HomePresenter implements HomeContract.IHomePresenter
     @Override
     public void attachView(HomeContract.IHomeView view)
     {
-        this.mView = view;
-        if (mModel == null)
-        {
-            mModel = new HomeModel();
-        }
+        super.attachView(view);
     }
+
 
     @Override
-    public void detachView()
+    protected HomeContract.IHomeModel createModel()
     {
-        if (mModel != null)
-        {
-            clearDisposable();
-        }
-        mView = null;
-        mModel = null;
-    }
-
-    /** Presenter添加观察者事件 */
-    protected void addDisposable(Disposable disposable)
-    {
-        if (compositeDisposable == null)
-        {
-            compositeDisposable = new CompositeDisposable();
-        }
-        compositeDisposable.add(disposable);
-    }
-
-    /** Presenter卸载当前观察者事件 */
-    protected void clearDisposable()
-    {
-        if (compositeDisposable != null)
-        {
-            compositeDisposable.clear();
-            compositeDisposable = null;
-        }
+        return new HomeModel();
     }
 }

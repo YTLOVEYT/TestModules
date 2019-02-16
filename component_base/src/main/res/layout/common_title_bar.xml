@@ -12,6 +12,7 @@
         android:id="@+id/iv_title_left"
         android:layout_width="@dimen/toolBarHeight_half"
         android:layout_height="match_parent"
+        android:visibility="gone"
         android:src="@drawable/ic_chevron_left_black_24dp" />
 
     <TextView

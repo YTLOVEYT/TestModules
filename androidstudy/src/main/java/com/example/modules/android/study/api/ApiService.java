@@ -3,6 +3,7 @@ package com.example.modules.android.study.api;
 import com.example.modules.android.study.entity.BaseObj;
 import com.example.modules.android.study.entity.article.ArticleListData;
 import com.example.modules.android.study.entity.banner.BannerData;
+import com.example.modules.android.study.entity.knowledge.KnowledgeSystemBean;
 
 import java.util.List;
 
@@ -23,6 +24,9 @@ public interface ApiService
 
     @GET("article/list/{num}/json")
     Observable<BaseObj<ArticleListData>> getArticleListData(@Path("num") int num);
+
+    @GET("tree/json")
+    Observable<BaseObj<List<KnowledgeSystemBean>>> getKnowledgeSystemData();
 
 
 }

@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -21,6 +22,7 @@ import com.example.modules.android.study.ui.fragment.home.HomeFragment;
 import com.example.modules.android.study.ui.fragment.knowledge.KnowledgeFragment;
 import com.example.modules.android.study.ui.fragment.navigation.NavigationFragment;
 import com.example.modules.android.study.ui.fragment.profile.ProfileFragment;
+import com.example.modules.base.event.BaseEvent;
 import com.example.modules.base.glouble.BaseActivity;
 import com.example.modules.base.uitls.TipsUtil;
 
@@ -65,6 +67,24 @@ public class MainActivity extends BaseActivity
         toggleNavAndContent();
         InitFragment();
         InitBottomNavView();
+
+    }
+
+    @Override
+    public void onMsgEvent(BaseEvent notice)
+    {
+        TipsUtil.logD("message=" + notice.getType() + "-" + notice.getEvent());
+
+        switch (notice.getType())
+        {
+            case 0:                 //打开drawer
+                if (!drawLayout.isDrawerOpen(GravityCompat.START))
+                {
+                    drawLayout.openDrawer(GravityCompat.START);
+                }
+                break;
+
+        }
 
     }
 
@@ -224,7 +244,7 @@ public class MainActivity extends BaseActivity
             public void onDrawerSlide(View drawerView, float slideOffset)
             {
                 View content = drawLayout.getChildAt(0);
-                TipsUtil.logE("slideOffset=" + slideOffset); //0-1
+                //TipsUtil.logD("slideOffset=" + slideOffset); //0-1
                 float scale = 1 - slideOffset;//1-0
                 float endScale = 0.8f + scale * 0.2f;//1-0.8
                 float startScale = 1 - 0.3f * scale;//

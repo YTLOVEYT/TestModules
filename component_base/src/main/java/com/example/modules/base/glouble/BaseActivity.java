@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.modules.base.R;
+import com.example.modules.base.event.BaseEvent;
 import com.gyf.barlibrary.ImmersionBar;
 
 import org.greenrobot.eventbus.EventBus;
@@ -67,11 +68,12 @@ public abstract class BaseActivity extends AppCompatActivity
         immersionBar.fitsSystemWindows(true).statusBarColor(R.color.colorPrimary).init();
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onMessageEvent()
+    @Subscribe
+    public void onMsgEvent(BaseEvent notice)
     {
 
     }
+
 
     protected abstract int getContentViewId();
 

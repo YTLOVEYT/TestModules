@@ -21,6 +21,7 @@ import com.example.modules.android.study.adapter.HomeListAdapter;
 import com.example.modules.android.study.entity.article.ArticleData;
 import com.example.modules.android.study.entity.banner.BannerData;
 import com.example.modules.android.study.ui.fragment.BaseFragment;
+import com.example.modules.base.event.BaseEvent;
 import com.example.modules.base.uitls.TipsUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -32,6 +33,8 @@ import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +44,7 @@ import butterknife.BindView;
  * 首页
  * Create By YinTao On 2018/12/23 15:57
  */
-public class HomeFragment extends BaseFragment implements OnRefreshListener, OnLoadMoreListener, View.OnClickListener
+public class HomeFragment extends BaseFragment implements OnRefreshListener, OnLoadMoreListener, View.OnClickListener, HomeContract.IHomeView
 {
     @BindView(R2.id.iv_title_left)
     ImageView ivTitleLeft;
@@ -63,6 +66,20 @@ public class HomeFragment extends BaseFragment implements OnRefreshListener, OnL
     private Banner banner;
     private HomeListAdapter homeListAdapter;
     private boolean isRefresh;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        super.isRegEventBus = true;
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+
+    }
 
     @Nullable
     @Override
@@ -131,7 +148,7 @@ public class HomeFragment extends BaseFragment implements OnRefreshListener, OnL
             public void onItemClick(BaseQuickAdapter adapter, View view, int position)
             {
                 // FIXME: 2018/12/25 跳转界面
-
+                TipsUtil.need_toast(getActivity(), "position=" + position + "-" + view.getId());
             }
         });
 
@@ -141,13 +158,14 @@ public class HomeFragment extends BaseFragment implements OnRefreshListener, OnL
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position)
             {
                 // FIXME: 2018/12/25 内部点击事件
-
+                TipsUtil.need_toast(getActivity(), "c_position=" + position + "--" + view.getId());
             }
+
         });
         recycleViewHome.setLayoutManager(new LinearLayoutManager(getFragmentContext()));
         LinearLayout header = (LinearLayout) LayoutInflater.from(getFragmentContext()).inflate(R.layout.study_recycle_banner, null);
         banner = header.findViewById(R.id.banner_home_item_header);
-//        header.removeView(banner);
+        //        header.removeView(banner);
         homeListAdapter.addHeaderView(header);
         recycleViewHome.setAdapter(homeListAdapter);
     }
@@ -201,14 +219,14 @@ public class HomeFragment extends BaseFragment implements OnRefreshListener, OnL
     public void onClick(View v)
     {
         int id = v.getId();
-        if (id==R.id.iv_title_left)
+        if (id == R.id.iv_title_left)
         {
             // FIXME: 2019/1/4 发信息到主窗口弹出界面
-
+            EventBus.getDefault().post(new BaseEvent<String>(0, "Open_Drawer"));
         }
-        else if (id==R.id.ll_title_search)
+        else if (id == R.id.ll_title_search)
         {
-
+            TipsUtil.need_toast(getActivity(), "search");
         }
     }
 

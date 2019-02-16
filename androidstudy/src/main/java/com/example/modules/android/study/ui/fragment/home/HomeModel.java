@@ -32,7 +32,7 @@ public class HomeModel implements HomeContract.IHomeModel
             {
                 return service.getArticleListData(page);
             }
-        });
+        },0);
     }
 
     @Override
@@ -45,6 +45,6 @@ public class HomeModel implements HomeContract.IHomeModel
             {
                 return service.getBannerData();
             }
-        });
+        }, 0);
     }
 }

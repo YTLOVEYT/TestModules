@@ -9,4 +9,10 @@
         <item name="android:windowActionBar">false</item>
         <item name="android:windowBackground">@android:color/white</item>
     </style>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension"/>
+        <attr name="border_color" format="color"/>
+        <attr name="border_overlay" format="boolean"/>
+    </declare-styleable>
 </resources>

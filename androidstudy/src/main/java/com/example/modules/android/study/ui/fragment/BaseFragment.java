@@ -10,6 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.modules.android.study.ui.fragment.home.HomeContract;
+import com.example.modules.base.event.BaseEvent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -18,11 +23,11 @@ import butterknife.Unbinder;
  * TestModules
  * Created by YinTao on 2018/12/23.
  */
-public abstract class BaseFragment extends Fragment implements HomeContract.IHomeView
+public abstract class BaseFragment extends Fragment
 {
-
     private Unbinder bind;
     private Context context;
+    protected boolean isRegEventBus = false;
 
     @Override
     public void onAttach(Context context)
@@ -30,6 +35,7 @@ public abstract class BaseFragment extends Fragment implements HomeContract.IHom
         super.onAttach(context);
         this.context = context;
     }
+
 
     @Nullable
     @Override
@@ -40,6 +46,11 @@ public abstract class BaseFragment extends Fragment implements HomeContract.IHom
         InitViews(view);        //初始化视图
         InitMVP();
         LoadData();
+        if (isRegEventBus)
+        {
+            EventBus.getDefault().register(this);
+        }
+
         return view;
     }
 
@@ -57,6 +68,16 @@ public abstract class BaseFragment extends Fragment implements HomeContract.IHom
     public void onDestroy()
     {
         super.onDestroy();
+        if (isRegEventBus)
+        {
+            EventBus.getDefault().unregister(this);
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMsgEvent(BaseEvent event)
+    {
+
     }
 
 

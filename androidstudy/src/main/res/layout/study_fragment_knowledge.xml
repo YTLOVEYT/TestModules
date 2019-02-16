@@ -1,9 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.knowledge.KnowledgeFragment">
+    android:orientation="vertical"
+    tools:context=".ui.fragment.knowledge.KnowledgeFragment"
+    >
+
+    <include layout="@layout/common_title_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_knowledge_welfare"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#999999"
+                android:gravity="center"
+                >
+
+                <View style="@style/study_line_width40" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="福利推荐"
+                    android:textColor="#ffffff"
+                    />
+
+                <View style="@style/study_line_width40" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#CCCCCC"
+                android:orientation="horizontal"
+                >
+
+                <com.example.modules.base.widget.CircleImageView
+                    android:id="@+id/cv_knowledge_welfare_one"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/t2"
+                    app:border_color="#ffffff"
+                    app:border_width="1dp"
+                    />
+
+                <com.example.modules.base.widget.CircleImageView
+                    android:id="@+id/cv_knowledge_welfare_two"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/t2"
+                    app:border_color="#ffffff"
+                    app:border_width="1dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_knowledge_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+            </LinearLayout>
 
 
-</FrameLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

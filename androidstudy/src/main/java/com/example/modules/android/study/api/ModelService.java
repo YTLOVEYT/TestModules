@@ -26,11 +26,9 @@ public class ModelService<T>
         Observable<BaseObj<T>> selectMethod(ApiService service);
     }
 
-    public static <T> Observable<BaseObj<T>> getRemoteData(MethodSelect<T> select)
+    public static <T> Observable<BaseObj<T>> getRemoteData(MethodSelect<T> select, int baseUrlType)
     {
-        return select.selectMethod(NetHelper.getDefault(0)
-                .create(ApiService.class))      //请求数据
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
+        return select.selectMethod(NetHelper.getDefault(baseUrlType).create(ApiService.class))      //请求数据
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 }
