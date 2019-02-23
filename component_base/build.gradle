@@ -81,5 +81,12 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["glide_compiler"]
     //eventBus
     api rootProject.ext.dependencies["eventbus"]
+    //bugly
+    api rootProject.ext.dependencies["bugly"]
+    //leakcanary-android
+    debugApi rootProject.ext.dependencies["leakcanary-android"]
+    //release不检测
+    releaseApi rootProject.ext.dependencies["leakcanary-android-no-op"]
+
 
 }

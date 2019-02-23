@@ -1,4 +1,4 @@
-package com.example.modules.android.study.ui.fragment;
+package com.example.modules.android.study.ui.mvp;
 
 import android.support.annotation.CallSuper;
 

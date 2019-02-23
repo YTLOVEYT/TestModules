@@ -27,6 +27,7 @@ import com.example.modules.base.glouble.BaseActivity;
 import com.example.modules.base.uitls.TipsUtil;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -67,6 +68,7 @@ public class MainActivity extends BaseActivity
         toggleNavAndContent();
         InitFragment();
         InitBottomNavView();
+
 
     }
 

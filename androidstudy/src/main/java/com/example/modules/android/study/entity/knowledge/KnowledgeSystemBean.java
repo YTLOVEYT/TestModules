@@ -24,7 +24,7 @@ public class KnowledgeSystemBean implements Parcelable
     {
     }
 
-    private static class ChildrenBean implements Parcelable
+    public static class ChildrenBean implements Parcelable
     {
         private int courseId;
         private int id;

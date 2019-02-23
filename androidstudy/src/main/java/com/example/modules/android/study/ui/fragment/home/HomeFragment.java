@@ -5,11 +5,14 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -21,6 +24,7 @@ import com.example.modules.android.study.adapter.HomeListAdapter;
 import com.example.modules.android.study.entity.article.ArticleData;
 import com.example.modules.android.study.entity.banner.BannerData;
 import com.example.modules.android.study.ui.fragment.BaseFragment;
+import com.example.modules.android.study.ui.fragment.home.search.SearchFragment;
 import com.example.modules.base.event.BaseEvent;
 import com.example.modules.base.uitls.TipsUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -39,12 +43,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * 首页
  * Create By YinTao On 2018/12/23 15:57
  */
-public class HomeFragment extends BaseFragment implements OnRefreshListener, OnLoadMoreListener, View.OnClickListener, HomeContract.IHomeView
+public class HomeFragment extends BaseFragment implements OnRefreshListener,
+        OnLoadMoreListener,
+        View.OnClickListener,
+        HomeContract.IHomeView
 {
     @BindView(R2.id.iv_title_left)
     ImageView ivTitleLeft;
@@ -56,6 +65,8 @@ public class HomeFragment extends BaseFragment implements OnRefreshListener, OnL
     RecyclerView recycleViewHome;
     @BindView(R2.id.smartRefreshLayout_home)
     SmartRefreshLayout smartRefreshLayoutHome;
+    @BindView(R.id.et_title_input)
+    EditText etTitleInput;
 
     private int page = 0;
     private int pageSize = 20;
@@ -130,9 +141,15 @@ public class HomeFragment extends BaseFragment implements OnRefreshListener, OnL
     @Override
     protected void InitViews(View view)
     {
+        ivTitleLeft.setVisibility(View.VISIBLE);
+        ivTitleRight.setVisibility(View.VISIBLE);
+        etTitleInput.setInputType(EditorInfo.TYPE_NULL);
+        etTitleInput.setHint("点我搜索");
         InitRecycleView(); //初始化RecycleView
         ivTitleLeft.setOnClickListener(this);
         llTitleSearch.setOnClickListener(this);
+        etTitleInput.setOnClickListener(this);
+        ivTitleRight.setOnClickListener(this);
         smartRefreshLayoutHome.setOnRefreshListener(this);
         smartRefreshLayoutHome.setOnLoadMoreListener(this);
     }
@@ -163,7 +180,8 @@ public class HomeFragment extends BaseFragment implements OnRefreshListener, OnL
 
         });
         recycleViewHome.setLayoutManager(new LinearLayoutManager(getFragmentContext()));
-        LinearLayout header = (LinearLayout) LayoutInflater.from(getFragmentContext()).inflate(R.layout.study_recycle_banner, null);
+        LinearLayout header = (LinearLayout) LayoutInflater.from(getFragmentContext())
+                .inflate(R.layout.study_recycle_banner, null);
         banner = header.findViewById(R.id.banner_home_item_header);
         //        header.removeView(banner);
         homeListAdapter.addHeaderView(header);
@@ -224,9 +242,23 @@ public class HomeFragment extends BaseFragment implements OnRefreshListener, OnL
             // FIXME: 2019/1/4 发信息到主窗口弹出界面
             EventBus.getDefault().post(new BaseEvent<String>(0, "Open_Drawer"));
         }
-        else if (id == R.id.ll_title_search)
+        else if (id == R.id.ll_title_search || id == R.id.et_title_input)
         {
             TipsUtil.need_toast(getActivity(), "search");
+            SearchFragment searchFragment = new SearchFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            if (fragmentManager != null)
+            {
+                searchFragment.show(fragmentManager, "searchFragment");
+            }
+            else
+            {
+                TipsUtil.logE("search_fragment error");
+            }
+        }
+        else if (id == R.id.iv_title_right)
+        {
+            TipsUtil.need_toast(getActivity(), "right");
         }
     }
 

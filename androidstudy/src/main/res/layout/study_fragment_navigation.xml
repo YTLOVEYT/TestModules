@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.navigation.NavigationFragment">
+    android:orientation="vertical"
+    tools:context=".ui.fragment.navigation.NavigationFragment"
+    >
 
+    <include layout="@layout/common_title_bar" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_nav_one"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="#CCCCCC"
+            />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#CCCCCC"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_nav_two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+</LinearLayout>

@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 
 import com.example.modules.android.study.ui.fragment.home.HomeContract;
 import com.example.modules.base.event.BaseEvent;
+import com.example.modules.base.glouble.BaseApplication;
+import com.squareup.leakcanary.RefWatcher;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -72,6 +74,8 @@ public abstract class BaseFragment extends Fragment
         {
             EventBus.getDefault().unregister(this);
         }
+        RefWatcher watcher = BaseApplication.getApp().getWatcher(context);
+        watcher.watch(this);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

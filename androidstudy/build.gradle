@@ -78,7 +78,8 @@ dependencies {
     implementation rootProject.ext.dependencies["adapter-rxjava2"]
     implementation rootProject.ext.dependencies["converter-gson"]
     implementation rootProject.ext.dependencies["logging-interceptor"]
-
+    //滑动tabLayout
+    implementation rootProject.ext.dependencies["FlycoTabLayout_Lib"]
 
 
 }

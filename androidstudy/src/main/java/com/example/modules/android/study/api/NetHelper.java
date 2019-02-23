@@ -5,7 +5,7 @@ import android.util.SparseArray;
 
 import com.example.modules.android.study.BuildConfig;
 import com.example.modules.base.glouble.BaseApplication;
-import com.example.modules.base.uitls.NetUtils;
+import com.example.modules.base.uitls.NetUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -124,14 +124,14 @@ public class NetHelper
         {
             Request request = chain.request();
             String cacheControl = request.cacheControl().toString();//获取缓存控制
-            if (!NetUtils.isNetConnected(BaseApplication.getApp()))//没有网，强制缓存策略
+            if (!NetUtil.isNetConnected(BaseApplication.getApp()))//没有网，强制缓存策略
             {
                 request.newBuilder()
                         .cacheControl(TextUtils.isEmpty(cacheControl) ? CacheControl.FORCE_NETWORK : CacheControl.FORCE_CACHE)
                         .build();
             }
             Response proceed = chain.proceed(request);
-            if (NetUtils.isNetConnected(BaseApplication.getApp())) //有网
+            if (NetUtil.isNetConnected(BaseApplication.getApp())) //有网
             {
                 return proceed.newBuilder()
                         .header("Cache-Control", cacheControl)

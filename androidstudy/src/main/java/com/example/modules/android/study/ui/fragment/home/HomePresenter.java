@@ -3,16 +3,13 @@ package com.example.modules.android.study.ui.fragment.home;
 import com.example.modules.android.study.entity.BaseObj;
 import com.example.modules.android.study.entity.article.ArticleListData;
 import com.example.modules.android.study.entity.banner.BannerData;
-import com.example.modules.android.study.ui.IModel;
-import com.example.modules.android.study.ui.fragment.BasePresenter;
+import com.example.modules.android.study.ui.mvp.BasePresenter;
 import com.example.modules.android.study.ui.mvp.BaseObserver;
 import com.example.modules.base.uitls.TipsUtil;
 
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**

@@ -16,10 +16,10 @@ import java.util.regex.Pattern;
  * Created by xsf
  * on 2016.04.10:34
  */
-public class NetUtils
+public class NetUtil
 {
 
-    private NetUtils()
+    private NetUtil()
     {
         /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");

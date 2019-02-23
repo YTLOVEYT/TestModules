@@ -6,4 +6,5 @@
     <color name="study_light_green">#3fc75f</color>
     <color name="study_light_yellow">#e7c054</color>
     <color name="study_blue">#35B0FF</color>
+    <color name="study_transparent">#00000000</color>
 </resources>
