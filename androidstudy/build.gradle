@@ -4,6 +4,7 @@ if (rootProject.ext.isAndroidStudyModule) {
     apply plugin: 'com.android.application'
 }
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 27
@@ -49,6 +50,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //greendao配置
+    greendao {
+        //版本号，升级时可配置
+        schemaVersion 1
+        //自定义生成数据库文件的目录
+        targetGenDir 'src/main/java'
+        //通过gradle插件生成的数据库相关文件的包名，默认为你的entity所在的包名；
+        daoPackage 'com.example.modules.android.study.dao'
+    }
 
 }
 
@@ -80,6 +90,8 @@ dependencies {
     implementation rootProject.ext.dependencies["logging-interceptor"]
     //滑动tabLayout
     implementation rootProject.ext.dependencies["FlycoTabLayout_Lib"]
+
+    implementation rootProject.ext.dependencies["greendao3"]
 
 
 }

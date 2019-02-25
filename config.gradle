@@ -73,5 +73,7 @@ ext {
             //leakcanary内存泄露
             "leakcanary-android"           : "com.squareup.leakcanary:leakcanary-android:1.5.1",
             "leakcanary-android-no-op"     : "com.squareup.leakcanary:leakcanary-android-no-op:1.5.1",
+            //greendao
+            "greendao3"                      : 'org.greenrobot:greendao:3.2.2',
     ]
 }

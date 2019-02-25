@@ -1,6 +1,6 @@
-package com.example.modules.android.study.ui.mvp;
+package com.example.modules.android.study.mvp;
 
-import com.example.modules.android.study.ui.IView;
+import com.example.modules.android.study.mvp.interfaces.IView;
 import com.example.modules.base.uitls.NetUtil;
 import com.example.modules.base.uitls.TipsUtil;
 

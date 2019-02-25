@@ -2,9 +2,9 @@ package com.example.modules.android.study.ui.fragment.knowledge;
 
 import com.example.modules.android.study.entity.BaseObj;
 import com.example.modules.android.study.entity.knowledge.KnowledgeSystemBean;
-import com.example.modules.android.study.ui.IModel;
-import com.example.modules.android.study.ui.IPresenter;
-import com.example.modules.android.study.ui.IView;
+import com.example.modules.android.study.mvp.interfaces.IModel;
+import com.example.modules.android.study.mvp.interfaces.IPresenter;
+import com.example.modules.android.study.mvp.interfaces.IView;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.modules.android.study.ui;
+package com.example.modules.android.study.mvp.interfaces;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;

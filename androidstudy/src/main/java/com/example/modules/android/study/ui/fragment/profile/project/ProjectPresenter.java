@@ -2,9 +2,8 @@ package com.example.modules.android.study.ui.fragment.profile.project;
 
 import com.example.modules.android.study.entity.BaseObj;
 import com.example.modules.android.study.entity.profile.ProjectListBean;
-import com.example.modules.android.study.ui.fragment.profile.ProfileContract;
-import com.example.modules.android.study.ui.mvp.BaseObserver;
-import com.example.modules.android.study.ui.mvp.BasePresenter;
+import com.example.modules.android.study.mvp.BaseObserver;
+import com.example.modules.android.study.mvp.BasePresenter;
 import com.example.modules.base.uitls.TipsUtil;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;

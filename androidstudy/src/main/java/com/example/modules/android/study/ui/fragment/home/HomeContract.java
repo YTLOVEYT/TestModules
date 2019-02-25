@@ -4,9 +4,9 @@ import com.example.modules.android.study.entity.BaseObj;
 import com.example.modules.android.study.entity.article.ArticleData;
 import com.example.modules.android.study.entity.article.ArticleListData;
 import com.example.modules.android.study.entity.banner.BannerData;
-import com.example.modules.android.study.ui.IModel;
-import com.example.modules.android.study.ui.IPresenter;
-import com.example.modules.android.study.ui.IView;
+import com.example.modules.android.study.mvp.interfaces.IModel;
+import com.example.modules.android.study.mvp.interfaces.IPresenter;
+import com.example.modules.android.study.mvp.interfaces.IView;
 
 import java.util.List;
 

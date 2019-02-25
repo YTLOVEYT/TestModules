@@ -28,8 +28,9 @@ import butterknife.Unbinder;
 public abstract class BaseDialogFragment extends DialogFragment
 {
     private Unbinder bind;
-    private Context context;
+    protected Context context;
     protected boolean isRegEventBus = false;
+    protected View rootView;
 
     @Override
     public void onAttach(Context context)
@@ -43,9 +44,9 @@ public abstract class BaseDialogFragment extends DialogFragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        View view = inflater.inflate(getFragmentLayoutId(), container, false); //视图
-        bind = ButterKnife.bind(this, view); //绑定控件
-        InitViews(view);        //初始化视图
+        rootView = inflater.inflate(getFragmentLayoutId(), container, false); //视图
+        bind = ButterKnife.bind(this, rootView); //绑定控件
+        InitViews(rootView);        //初始化视图
         InitMVP();
         LoadData();
         if (isRegEventBus)
@@ -53,7 +54,7 @@ public abstract class BaseDialogFragment extends DialogFragment
             EventBus.getDefault().register(this);
         }
 
-        return view;
+        return rootView;
     }
 
     @Override

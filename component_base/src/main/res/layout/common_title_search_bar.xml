@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/toolBarHeight"
     android:background="@android:color/transparent"
@@ -9,8 +8,7 @@
     android:paddingLeft="@dimen/padding_6dp"
     android:paddingTop="5dp"
     android:paddingRight="@dimen/padding_6dp"
-    android:paddingBottom="5dp"
-    >
+    android:paddingBottom="5dp">
 
     <ImageView
         android:id="@+id/iv_title_left"
@@ -18,8 +16,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:src="@drawable/ic_format_list_bulleted_black_24dp"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_title_left"
@@ -29,8 +26,7 @@
         android:gravity="center"
         android:textColor="@color/color_white"
         android:textSize="@dimen/textSize_12sp"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/ll_title_search"
@@ -43,14 +39,12 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        >
+        android:paddingRight="10dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_search"
-            />
+            android:src="@drawable/ic_search" />
 
         <EditText
             android:id="@+id/et_title_input"
@@ -63,9 +57,8 @@
             android:gravity="center_vertical"
             android:hint="搜索"
             android:imeOptions="actionSearch"
-            android:layoutDirection="locale"
-            android:textSize="@dimen/textSize_12sp"
-            />
+            android:maxLines="1"
+            android:textSize="@dimen/textSize_12sp" />
 
         <TextView
             android:id="@+id/tv_title_cancel"
@@ -74,9 +67,8 @@
             android:clickable="true"
             android:focusable="true"
             android:text="取消"
-            android:textColor="#000000"
-            android:visibility="gone"
-            />
+            android:textColor="#555555"
+            android:visibility="gone" />
     </LinearLayout>
 
     <TextView
@@ -86,15 +78,13 @@
         android:gravity="center"
         android:textColor="@color/color_white"
         android:textSize="@dimen/textSize_12sp"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/iv_title_right"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:src="@drawable/ic_more_vert_black_24dp"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
 </LinearLayout>

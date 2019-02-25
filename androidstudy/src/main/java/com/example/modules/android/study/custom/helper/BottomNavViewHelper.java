@@ -1,4 +1,4 @@
-package com.example.modules.android.study.custom;
+package com.example.modules.android.study.custom.helper;
 
 import android.annotation.SuppressLint;
 import android.support.design.internal.BottomNavigationItemView;

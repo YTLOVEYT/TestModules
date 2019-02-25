@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -17,17 +16,17 @@ import android.widget.FrameLayout;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.modules.android.study.R;
 import com.example.modules.android.study.R2;
-import com.example.modules.android.study.custom.BottomNavViewHelper;
+import com.example.modules.android.study.custom.helper.BottomNavViewHelper;
 import com.example.modules.android.study.ui.fragment.home.HomeFragment;
 import com.example.modules.android.study.ui.fragment.knowledge.KnowledgeFragment;
 import com.example.modules.android.study.ui.fragment.navigation.NavigationFragment;
 import com.example.modules.android.study.ui.fragment.profile.ProfileFragment;
 import com.example.modules.base.event.BaseEvent;
 import com.example.modules.base.glouble.BaseActivity;
+import com.example.modules.base.uitls.SoftInputUtil;
 import com.example.modules.base.uitls.TipsUtil;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -195,6 +194,13 @@ public class MainActivity extends BaseActivity
             curFragment = fragment;
             transaction.commit();
         }
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+
     }
 
     /** 初始化侧滑导航栏 */

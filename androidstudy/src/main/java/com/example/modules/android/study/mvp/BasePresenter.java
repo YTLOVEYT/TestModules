@@ -1,9 +1,9 @@
-package com.example.modules.android.study.ui.mvp;
+package com.example.modules.android.study.mvp;
 
 import android.support.annotation.CallSuper;
 
-import com.example.modules.android.study.ui.IModel;
-import com.example.modules.android.study.ui.IView;
+import com.example.modules.android.study.mvp.interfaces.IModel;
+import com.example.modules.android.study.mvp.interfaces.IView;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;

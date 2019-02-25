@@ -2,8 +2,8 @@ package com.example.modules.android.study.ui.fragment.profile;
 
 import com.example.modules.android.study.entity.BaseObj;
 import com.example.modules.android.study.entity.profile.ProjectClassifyBean;
-import com.example.modules.android.study.ui.mvp.BaseObserver;
-import com.example.modules.android.study.ui.mvp.BasePresenter;
+import com.example.modules.android.study.mvp.BaseObserver;
+import com.example.modules.android.study.mvp.BasePresenter;
 import com.example.modules.base.uitls.TipsUtil;
 
 import java.util.List;
